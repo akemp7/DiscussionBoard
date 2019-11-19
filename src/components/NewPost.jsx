@@ -4,10 +4,11 @@ import PropTypes from 'prop-types';
 function NewPost(props){
     let _userNames = null;
     let _post = null;
+    let _likes = 0;
 
     function onNewPostFormSubmission(event){
         event.preventDefault();
-        props.onAddingNewPostToList({userName: _userNames.value, post: _post.value});
+        props.onAddingNewPostToList({userName: _userNames.value, post: _post.value, likes: _likes});
         _userNames.value='';
         _post.value='';
     }

@@ -1,39 +1,20 @@
 import React from 'react';
 import NewPost from './NewPost';
 import PostList from './PostList';
+import PropTypes from 'prop-types';
 
 
-class PostControl extends React.Component {
+function PostControl(props) {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            postList: [
-            {
-                userName: 'dklsadjl',
-                post: 'lorem ipsum dolor'
-            }
-          ]
-        };
-        this.handleAddingNewPostToList = this.handleAddingNewPostToList.bind(this);
-      }
-
-      handleAddingNewPostToList(newPost) {
-          var newPostList = this.state.postList.slice();
-          newPostList.push(newPost);
-          this.setState({postList: newPostList});
-      }
-
-    render(){
+  
         return (
             <div>
-                <NewPost onAddingNewPostToList={this.handleAddingNewPostToList}/>
+                <NewPost onAddingNewPostToList={props.handleAddingNewPostToList}/>
                 <hr />
-                <PostList postList={this.state.postList} />
+                <PostList postList={props.postList} />
              </div>
         );
     }
     
-}
 
 export default PostControl;

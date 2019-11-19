@@ -7,17 +7,23 @@ function PostList(props){
     return(
         <div>
             <hr/>
-            {props.postList.map((i, index) =>
-                    <Posts userName={i.userName}
-                    post={i.post}
-                    key={index} />
+            {props.postList.map((post, i) =>
+                    <Posts userName={post.userName}
+                    post={post.post}
+                    likes = {post.likes}
+                    index = {i}
+                    key={i} 
+                    onUpClick={post.onUpClick}
+                    />
                 )}
         </div>
     );
 }
 
 PostList.propTypes = {
-    postList: PropTypes.array
+    postList: PropTypes.array,
+    likes: PropTypes.number,
+    onUpClick: PropTypes.func
 };
 
 export default PostList;
